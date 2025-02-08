@@ -1,4 +1,5 @@
 **Suspension Failure Prediction**
+
 **Overview**
 
 The Suspension Failure Prediction project utilizes a Random Forest Classifier to predict potential failures in vehicle suspension systems. This model is designed to assist automobile engineers in proactive maintenance and design improvements, reducing unexpected breakdowns and enhancing vehicle safety.
@@ -20,6 +21,7 @@ The dataset includes various parameters such as:
 •	Shock Absorption Metrics
 
 **Installation**
+
 **Clone the Repository**
 
 git clone https://github.com/JayachandranSA/Suspension_Failure_Prediction.git
