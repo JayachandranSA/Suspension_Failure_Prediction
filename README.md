@@ -7,17 +7,25 @@ The Suspension Failure Prediction project utilizes a Random Forest Classifier to
 **Features**
 
 •	Predicts suspension failure using machine learning.
+
 •	Trained on real-world automobile data.
+
 •	Built with Python, Pandas, NumPy, and Scikit-Learn.
+
 •	Provides API integration for real-time predictions.
 
 **Dataset**
 
 The dataset includes various parameters such as:
+
 •	Load Conditions
+
 •	Vibration Levels
+
 •	Temperature
+
 •	Material Properties
+
 •	Shock Absorption Metrics
 
 **Installation**
@@ -72,7 +80,9 @@ Then, access the API at: http://127.0.0.1:5000/predict
 **Future Improvements**
 
 •	Integration with real-time sensor data.
+
 •	Deployment as a cloud-based API.
+
 •	Enhancing accuracy using deep learning models.
 
 **Contributions**
