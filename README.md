@@ -50,6 +50,7 @@ Run the following command to train the model:
 python train_model.py
 
 **Prediction**
+
 To make a prediction using the trained model:
 python predict.py --input sample_input.csv
 
