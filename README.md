@@ -54,12 +54,19 @@ Then, access the API at: http://127.0.0.1:5000/predict
 **Repository Structure**
 
 ├── data/                     # Dataset files
+
 ├── models/                   # Trained models
+
 ├── src/
+
 │   ├── train_model.py        # Model training script
+
 │   ├── predict.py            # Prediction script
+
 │   ├── app.py                # Flask API
+
 ├── requirements.txt          # Dependencies
+
 ├── README.md                 # Project Documentation
 
 **Future Improvements**
