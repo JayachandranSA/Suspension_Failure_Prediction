@@ -1,14 +1,16 @@
 # This workflow will install Python dependencies, run tests
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
-name: Continous Integration of Suspension Failure Prediction API
+name: CI/CD for Suspension Failure Prediction API
 
 on:
   push:
     branches: [ "main" ]
 
 jobs:
-  build:
+
+  
+  job1: #For CI process(Testing)
 
     runs-on: ubuntu-latest
 
@@ -30,3 +32,32 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+
+  # job2: #For CD Process(Deploying)
+    
+  #   runs-on: ubuntu-latest
+  #   environment: production
+  #   steps:
+  #     - name: giving access of our repository to workflow    
+  #       uses: actions/checkout@v4
+  #     - name: Configure AWS credentials
+  #       uses: aws-actions/configure-aws-credentials@v1
+  #       with:
+  #         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  #         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  #         aws-region: us-east-1
+  #     - name: Login to Amazon ECR
+  #       id: login-ecr
+  #       uses: aws-actions/amazon-ecr-login@v1
+  #     - name: Build, tag, and push image to Amazon ECR
+  #       id: build-image
+  #       env:
+  #         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+  #         ECR_REPOSITORY: my-ecr-repo
+  #         IMAGE_TAG: ${{ github.sha }}
+  #       run: |
+  #         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+  #         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+  #         echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT        
+
+
