@@ -8,9 +8,10 @@ app = Flask(__name__)
 try:
     with open("suspension_model.pkl", "rb") as model_file:
         model = pickle.load(model_file)
+    print("✅ Model loaded successfully!")  # Debugging print statement
 except Exception as e:
-    print(f"Error loading model: {e}")
-    model = None  # Handle if the model fails to load
+    print(f"❌ Error loading model: {e}")  # Debugging print statement
+    model = None  # Handle model loading failure
 
 # API Endpoints
 @app.route('/')
@@ -20,10 +21,17 @@ def home():
 @app.route('/predict', methods=['POST'])
 def predict():
     if model is None:
-        return jsonify({"error": "Model failed to load."}), 500
+        return jsonify({"error": "Model failed to load."}), 500  # Return error if model is missing
 
-    sus_data = request.get_json()
     try:
+        sus_data = request.get_json()
+
+        # Ensure all required keys are in the request
+        required_keys = ["vehicle_load_tons", "road_type", "shock_absorber_health", "suspension_travel_mm", "vehicle_age_years"]
+        for key in required_keys:
+            if key not in sus_data:
+                return jsonify({"error": f"Missing key: {key}"}), 400
+
         # Extract features
         vehicle_load_tons = float(sus_data['vehicle_load_tons'])
         road_type = int(sus_data['road_type'])
@@ -46,7 +54,9 @@ def predict():
         })
 
     except Exception as e:
-        return jsonify({"error": str(e)}), 400
+        print(f"❌ Error in prediction: {e}")  # Log error
+        return jsonify({"error": str(e)}), 500  # Return error response
+
 
 # Run Flask app
 if __name__ == '__main__':
