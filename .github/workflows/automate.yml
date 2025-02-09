@@ -34,7 +34,7 @@ jobs:
         pytest
 
   job2: #For CD Process(Deploying)
-    
+    needs: job1
     runs-on: ubuntu-latest
     environment: production
     steps:
