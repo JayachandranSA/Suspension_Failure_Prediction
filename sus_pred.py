@@ -22,7 +22,8 @@ else:
 # API Endpoints
 @app.route('/')
 def home():
-    return "<h1>Suspension Component Health Prediction</h1>"
+    return "<h1> Suspension Component Health prediction </h1>"
+
 
 @app.route('/predict', methods=['POST'])
 def predict():
